@@ -18,6 +18,7 @@ public class LoginTests extends BaseTest {
 
             Response response = given()
                     .header("Content-Type", "application/json")
+                    .header("x-api-key", "reqres-free-v1")
                     .body(PayloadHelper.getLoginPayload("eve.holt@reqres.in", "cityslicka"))
                     .post(ConfigurationManager.getProperty("login.endpoint"));
 
@@ -28,6 +29,7 @@ public class LoginTests extends BaseTest {
             logPass("Response contains 'token'.");
 
             logInfo("Response: " + response.getBody().asString());
+            System.out.println("[PASS] testValidLogin passed");
         } catch (Exception e) {
             logFail("Exception occurred: " + e.getMessage());
         }
@@ -41,6 +43,7 @@ public class LoginTests extends BaseTest {
 
             Response response = given()
                     .header("Content-Type", "application/json")
+                    .header("x-api-key", "reqres-free-v1")
                     .body(PayloadHelper.getLoginPayload("invaliduser", "wrongpassword"))
                     .post(ConfigurationManager.getProperty("login.endpoint"));
 
@@ -51,6 +54,7 @@ public class LoginTests extends BaseTest {
             logPass("Response contains 'error'.");
 
             logInfo("Response: " + response.getBody().asString());
+            System.out.println("[PASS] testInvalidLogin passed");
         } catch (Exception e) {
             logFail("Exception occurred: " + e.getMessage());
         }
@@ -65,6 +69,7 @@ public class LoginTests extends BaseTest {
             // Send POST request with an empty email field
             Response response = given()
                     .header("Content-Type", "application/json")
+                    .header("x-api-key", "reqres-free-v1")
                     .body(PayloadHelper.getLoginPayload("", "abc")) // Empty email, valid password
                     .post(ConfigurationManager.getProperty("login.endpoint"));
 
@@ -77,6 +82,7 @@ public class LoginTests extends BaseTest {
             logPass("Response contains the error message: 'Missing email or username'.");
 
             logInfo("Response: " + response.getBody().asString());
+            System.out.println("[PASS] testEmptyEmailLogin passed");
         } catch (Exception e) {
             logFail("Exception occurred: " + e.getMessage());
         }
@@ -90,6 +96,7 @@ public class LoginTests extends BaseTest {
             // Send POST request with both email and password as empty
             Response response = given()
                     .header("Content-Type", "application/json")
+                    .header("x-api-key", "reqres-free-v1")
                     .body(PayloadHelper.getLoginPayload("", "")) // Both fields are empty
                     .post(ConfigurationManager.getProperty("login.endpoint"));
 
@@ -102,6 +109,7 @@ public class LoginTests extends BaseTest {
             logPass("Response contains the error message: 'Missing email or username'.");
 
             logInfo("Response: " + response.getBody().asString());
+            System.out.println("[PASS] testEmptyEmailAndPassword passed");
         } catch (Exception e) {
             logFail("Exception occurred: " + e.getMessage());
         }

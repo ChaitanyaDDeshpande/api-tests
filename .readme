@@ -1,0 +1,38 @@
+# REST Assured Test Automation Framework
+
+## Overview
+This project is a test automation framework designed to validate the functionality of REST APIs. It ensures that your API performs as expected by simulating various real-world scenarios, such as logging in with valid and invalid credentials. The framework is built in **Java** and integrates the following tools:
+- **REST Assured**: For API interactions and response validations.
+- **JUnit**: To organise and run test cases.
+- **ExtentReports**: To generate detailed and visually appealing test reports.
+
+## Features
+1. **Login Test Cases**:
+   - Valid Login.
+   - Invalid Login.
+   - Login with missing or empty email/password fields.
+
+2. **Utilities**:
+   - Configuration Manager for managing environment settings.
+   - Helper classes for building request payloads and validating responses.
+
+3. **Reporting**:
+   - Automatically generates HTML reports after test execution.
+
+## Project Structure
+- **src/main/java**: Contains reusable components like configuration and helpers.
+- **src/test/java**: Houses the actual test cases under the `tests` package.
+- **resources/application.properties**: Configuration file for storing API details.
+
+### Key Files
+- `pom.xml`: Contains Maven dependencies for REST Assured, JUnit, and ExtentReports.
+- `BaseTest.java`: Sets up test reporting and reusable logging functions.
+- `LoginTests.java`: Implements multiple test cases for login scenarios.
+- `ConfigurationManager.java`: Manages application properties (base URL and endpoints).
+- `ApiHelper.java`: Provides assertion utilities for API responses.
+- `PayloadHelper.java`: Builds dynamic request payloads.
+
+## How to Run
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/ChaitanyaDDeshpande/api-tests.git
