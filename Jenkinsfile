@@ -1,11 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9.9' // Ensure this matches the Maven installation name in Jenkins
+        maven 'Maven' // Use generic Maven tool name as configured in Jenkins
         jdk 'jdk-21'          // Ensure this matches the JDK installation name in Jenkins
-    }
-    environment {
-        // Set any environment variables if needed
     }
     stages {
         stage('Checkout') {
