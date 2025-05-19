@@ -58,6 +58,28 @@ apitestframework/
 - Create a Pipeline job and point it to this repository.
 - Test results and reports will be archived as build artifacts.
 
+#### Jenkins Job Run Details
+1. **Install Required Tools and Plugins:**
+   - Go to **Manage Jenkins > Global Tool Configuration** and add Maven (e.g., `Maven`) and JDK (e.g., `jdk-21`).
+   - Install plugins: Pipeline, Maven Integration, JUnit, Git.
+2. **Create a Pipeline Job:**
+   - Click **New Item** > Enter a job name > Select **Pipeline** > OK.
+3. **Configure Source Control:**
+   - Under **Pipeline** > **Definition**, select **Pipeline script from SCM**.
+   - Choose **Git** and enter your repository URL (e.g., `https://github.com/your-username/your-repo.git`).
+   - Set the branch (e.g., `main` or `master`).
+4. **Save and Build:**
+   - Click **Save** and then **Build Now**.
+5. **View Results:**
+   - Click the build number to see **Console Output**.
+   - Test results are available under **Test Result** (JUnit plugin).
+   - Download/view `ExtentReports.html` from **Archived Artifacts**.
+
+**Note:**
+- On Windows agents, the Jenkinsfile uses `bat` steps for Maven commands.
+- Ensure the tool names in the Jenkinsfile match those configured in Jenkins.
+- If you encounter errors, check the Console Output for details and verify your tool/plugin setup.
+
 ## Key Files
 - `pom.xml` — Maven dependencies and build configuration
 - `Jenkinsfile` — Jenkins pipeline definition
@@ -87,4 +109,3 @@ apitestframework/
 2. Create a feature branch (`git checkout -b feature/your-feature`)
 3. Commit your changes
 4. Push to your fork and open a pull request
-
